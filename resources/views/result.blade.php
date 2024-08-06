@@ -101,38 +101,38 @@
                     <div class="col-md-6 col-12">
                         <div class="card border-0 mb-3">
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-7 col-6">
-                                        Total Skor
-                                    </div>
-                                    <div class="col-md-5 col-6 fw-bolder">
-                                        : {{ $score }}
-                                    </div>
-                                    <div class="col-md-7 col-6">
-                                        Masalah GME
-                                    </div>
-                                    <div class="col-md-5 col-6 fw-bolder">
-                                        : {{ $gme_problems ? 'Ya' : 'Tidak' }}
-                                    </div>
-                                    <div class="col-md-7 col-6">
-                                        Penggunaan Zat Psikoaktif/Narkoba
-                                    </div>
-                                    <div class="col-md-5 col-6 fw-bolder">
-                                        : {{ $drug_use ? 'Ya' : 'Tidak' }}
-                                    </div>
-                                    <div class="col-md-7 col-6">
-                                        Gejala Gangguan Psikotik
-                                    </div>
-                                    <div class="col-md-5 col-6 fw-bolder">
-                                        : {{ $psychotic_symptoms ? 'Ya' : 'Tidak' }}
-                                    </div>
-                                    <div class="col-md-7 col-6">
-                                        Gejala Gangguan PTSD
-                                    </div>
-                                    <div class="col-md-5 col-6 fw-bolder">
-                                        : {{ $ptsd_symptoms ? 'Ya' : 'Tidak' }}
-                                    </div>
+                            <div class="row">
+                                <div class="col-md-7 col-7">
+                                    Total Skor
                                 </div>
+                                <div class="col-md-5 col-5 fw-bolder">
+                                    : {{ $score }}
+                                </div>
+                                <div class="col-md-7 col-7">
+                                    Masalah GME
+                                </div>
+                                <div class="col-md-5 col-5 fw-bolder">
+                                    : {{ $gme_problems ? 'Ya' : 'Tidak' }}
+                                </div>
+                                <div class="col-md-7 col-7">
+                                    Penggunaan Zat Psikoaktif/Narkoba
+                                </div>
+                                <div class="col-md-5 col-5 fw-bolder">
+                                    : {{ $drug_use ? 'Ya' : 'Tidak' }}
+                                </div>
+                                <div class="col-md-7 col-7">
+                                    Gejala Gangguan Psikotik
+                                </div>
+                                <div class="col-md-5 col-5 fw-bolder">
+                                    : {{ $psychotic_symptoms ? 'Ya' : 'Tidak' }}
+                                </div>
+                                <div class="col-md-7 col-7">
+                                    Gejala Gangguan PTSD
+                                </div>
+                                <div class="col-md-5 col-5 fw-bolder">
+                                    : {{ $ptsd_symptoms ? 'Ya' : 'Tidak' }}
+                                </div>
+                            </div>
                             </div>
                         </div>    
                         @if($score > 5)

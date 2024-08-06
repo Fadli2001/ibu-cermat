@@ -3,64 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\SurveyResponse;
 
 class IbuCermatController extends Controller
 {
 
     public function showConsent()
-    {
+    {        
         return view('consent');
     }
 
     public function showForm()
     {
-        $questions = [
-            "Apakah Anda sering merasa sakit kepala",
-            "Apakah Anda kehilangan nafsu makan",
-            "Apakah Tidur Anda tidak nyenyak",
-            "Apakah Anda mudah merasa takut",
-            "Apakah Anda merasa cemas, tegang, atau khawatir",
-            "Apakah tangan Anda gemetar",
-            "Apakah Anda mengalami gangguan pencernaan",
-            "Apakah Anda merasa sulit berpikir jernih",
-            "Apakah Anda merasa tidak bahagia",
-            "Apakah Anda lebih sering menangis",
-            "Apakah Anda merasa sulit untuk menikmati aktivitas sehari-hari",
-            "Apakah Anda mengalami kesulitan untuk mengambil keputusan",
-            "Apakah aktivitas/tugas sehari-hari Anda terbengkalai",
-            "Apakah Anda merasa tidak mampu berperan dalam kehidupan ini",
-            "Apakah Anda kehilangan minat terhadap banyak hal",
-            "Apakah Anda merasa tidak berharga",
-            "Apakah Anda mempunyai pikiran untuk mengakhiri hidup Anda",
-            "Apakah Anda merasa lelah sepanjang waktu",
-            "Apakah Anda merasa tidak enak di perut",
-            "Apakah Anda mudah lelah",
-            "Apakah Anda minum alkohol lebih banyak dari biasanya atau Apakah Anda menggunakan narkoba",
-            "Apakah Anda yakin bahwa ada seseorang mencoba mencelakai Anda dengan cara tertentu",
-            "Apakah ada yang mengganggu atau hal yang tidak biasa dalam pikiran Anda",
-            "Apakah Anda pernah mendengar suara tanpa tahu sumbernya atau yang orang lain tidak dapat dengar",
-            "Apakah Anda mengalami mimpi yang mengganggu, tentang suatu bencana/musibah atau adakah saat-saat Anda seolah mengalami kembali kejadian bencana itu?",
-            "Apakah Anda menghindari kegiatan, tempat, orang atau pikiran yang mengingatkan Anda akan bencana tersebut",
-            "Apakah minat Anda terhadap teman dan kegiatan yang biasa Anda lakukan berkurang",
-            "Apakah Anda merasa sangat terganggu jika berada dalam situasi yang mengingatkan Anda akan bencana atau jika Anda berpikir tentang bencana itu",
-            "Apakah Anda kesulitan mengalami atau mengekspresikan perasaan Anda"
-        ];
-    
-        return view('form', compact('questions'));
+        return view('form', ['questions' => $this->getQuestions()]);
     }
     
-
     public function showResult(Request $request)
     {
+        session(['form_submitted' => true]);
+
         $answers = $request->all();
 
         $score = 0;
-        $gme_problems = 0;
+        $gme_problems = false;
         $drug_use = false;
         $psychotic_symptoms = false;
         $ptsd_symptoms = false;
-
-
 
         // Calculate score and analyze answers
         foreach ($answers as $key => $answer) {
@@ -94,6 +62,61 @@ class IbuCermatController extends Controller
             }
         }
 
+        // Save to database
+        SurveyResponse::create([
+            'name' => $answers['name'],
+            'gender' => $answers['exampleForm'],
+            'age' => $answers['age'],
+            'phone' => $answers['phone'],
+            'address' => $answers['address'],
+            'rt' => $answers['rt'],
+            'rw' => $answers['rw'],
+            'provinsi' => $answers['provinsi'],
+            'kabupaten' => $answers['kabupaten'],
+            'kecamatan' => $answers['kecamatan'],
+            'kelurahan' => $answers['kelurahan'],
+            'score' => $score,
+            'gme_problems' => $gme_problems,
+            'drug_use' => $drug_use,
+            'psychotic_symptoms' => $psychotic_symptoms,
+            'ptsd_symptoms' => $ptsd_symptoms,
+        ]);
+
         return view('result', compact('score', 'gme_problems', 'drug_use', 'psychotic_symptoms', 'ptsd_symptoms', 'answers'));
+    }
+
+    private function getQuestions()
+    {
+        return [
+            "Apakah Anda sering merasa sakit kepala",
+            "Apakah Anda kehilangan nafsu makan",
+            "Apakah Tidur Anda tidak nyenyak",
+            "Apakah Anda mudah merasa takut",
+            "Apakah Anda merasa cemas, tegang, atau khawatir",
+            "Apakah tangan Anda gemetar",
+            "Apakah Anda mengalami gangguan pencernaan",
+            "Apakah Anda merasa sulit berpikir jernih",
+            "Apakah Anda merasa tidak bahagia",
+            "Apakah Anda lebih sering menangis",
+            "Apakah Anda merasa sulit untuk menikmati aktivitas sehari-hari",
+            "Apakah Anda mengalami kesulitan untuk mengambil keputusan",
+            "Apakah aktivitas/tugas sehari-hari Anda terbengkalai",
+            "Apakah Anda merasa tidak mampu berperan dalam kehidupan ini",
+            "Apakah Anda kehilangan minat terhadap banyak hal",
+            "Apakah Anda merasa tidak berharga",
+            "Apakah Anda mempunyai pikiran untuk mengakhiri hidup Anda",
+            "Apakah Anda merasa lelah sepanjang waktu",
+            "Apakah Anda merasa tidak enak di perut",
+            "Apakah Anda mudah lelah",
+            "Apakah Anda minum alkohol lebih banyak dari biasanya atau Apakah Anda menggunakan narkoba",
+            "Apakah Anda yakin bahwa ada seseorang mencoba mencelakai Anda dengan cara tertentu",
+            "Apakah ada yang mengganggu atau hal yang tidak biasa dalam pikiran Anda",
+            "Apakah Anda pernah mendengar suara tanpa tahu sumbernya atau yang orang lain tidak dapat dengar",
+            "Apakah Anda mengalami mimpi yang mengganggu, tentang suatu bencana/musibah atau adakah saat-saat Anda seolah mengalami kembali kejadian bencana itu?",
+            "Apakah Anda menghindari kegiatan, tempat, orang atau pikiran yang mengingatkan Anda akan bencana tersebut",
+            "Apakah minat Anda terhadap teman dan kegiatan yang biasa Anda lakukan berkurang",
+            "Apakah Anda merasa sangat terganggu jika berada dalam situasi yang mengingatkan Anda akan bencana atau jika Anda berpikir tentang bencana itu",
+            "Apakah Anda kesulitan mengalami atau mengekspresikan perasaan Anda"
+        ];
     }
 }

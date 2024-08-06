@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 col-sm-12 pt-4">
-            <div id="consentContainer" class="card p-4 shadow-sm bg-purple">
+            <div class="card p-4 shadow-sm bg-purple">
                 <div>
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo mx-auto d-block mb-4 img-fluid" style="max-width: 200px;">
                 </div>
