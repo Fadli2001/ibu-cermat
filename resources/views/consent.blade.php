@@ -10,14 +10,14 @@
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo mx-auto d-block mb-4 img-fluid" style="max-width: 200px;">
                 </div>
                 <div class="content text-muted">                    
-                    <p class="text-justify"><span>Hallo Ibu Cermat !!!</span>
-                        Tahukah ibu bahwa gangguan kesehatan mental pada periode perinatal (Masa selama kehamilan, persalinan dan nifas) dapat meningkatkan komplikasi obstetri (kondisi seperti preeklampsia, perdarahan, infeksi, atau masalah dengan letak janin), dan 75% kematian ibu dalam masa perinatal disebabkan oleh komplikasi kedaruratan.
+                    <p align="justify"><span>Halo Ibu Cermat !!!.</span>
+                    Tahukah Anda bahwa gangguan kesehatan mental pada periode perinatal (masa selama kehamilan, persalinan, dan nifas) dapat meningkatkan risiko komplikasi obstetri, seperti preeklampsia, perdarahan, infeksi, atau masalah dengan letak janin? Selain itu, 75% kematian ibu dalam masa perinatal disebabkan oleh komplikasi darurat.
                     </p>
-                    <p class="text-justify">
-                        Selain itu dampaknya tidak hanya terbatas pada depresi berulang dan peningkatan risiko bunuh diri pada perempuan, tetapi juga mencakup perubahan epigenetik pada bayi, kelahiran prematur, serta gangguan perkembangan kognitif dan emosional yang serius.
+                    <p align="justify">
+                    Dampak gangguan kesehatan mental ini tidak hanya terbatas pada depresi berulang dan peningkatan risiko bunuh diri pada perempuan, tetapi juga mencakup perubahan epigenetik pada bayi, kelahiran prematur, serta gangguan perkembangan kognitif dan emosional yang serius.
                     </p>
-                    <p class="text-justify">
-                        Yuk kita satukan langkah dalam memperkuat kesadaran akan pentingnya deteksi dini masalah kesehatan mental perinatal, untuk menjaga kesejahteraan ibu dan bayi dengan lebih baik!
+                    <p align="justify">
+                    Mari kita satukan langkah dalam memperkuat kesadaran akan pentingnya deteksi dini masalah kesehatan mental perinatal untuk menjaga kesejahteraan ibu dan bayi dengan lebih baik.
                     </p>
                 </div>
                 <div class="d-flex justify-content-between mt-3">

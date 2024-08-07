@@ -79,7 +79,7 @@
                     </div>
 
                     <h5 class="mt-4" style="color: #7d3c98;">Petunjuk</h5>
-                    <p>
+                    <p align="justify">
                         Bacalah petunjuk ini seluruhnya sebelum mulai mengisi. Pertanyaan berikut berhubungan dengan masalah yang mungkin mengganggu Anda selama 30 hari terakhir.
                         Jika Anda tidak yakin tentang jawabannya, berilah jawaban yang paling
                         sesuai di antara Y dan T. Kami tegaskan bahwa jawaban Anda bersifat rahasia dan akan digunakan hanya untuk membantu pemecahan masalah Anda.
